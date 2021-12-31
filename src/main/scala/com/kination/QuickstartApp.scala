@@ -1,4 +1,4 @@
-package com.example
+package com.kination
 
 import akka.actor.typed.ActorSystem
 import akka.actor.typed.scaladsl.Behaviors

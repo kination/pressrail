@@ -1,4 +1,4 @@
-package com.example
+package com.kination
 
 //#user-registry-actor
 import akka.actor.typed.ActorRef

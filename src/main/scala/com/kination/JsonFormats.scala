@@ -1,6 +1,6 @@
-package com.example
+package com.kination
 
-import com.example.UserRegistry.ActionPerformed
+import com.kination.UserRegistry.ActionPerformed
 
 //#json-formats
 import spray.json.DefaultJsonProtocol

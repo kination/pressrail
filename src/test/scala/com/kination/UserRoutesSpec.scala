@@ -1,4 +1,4 @@
-package com.example
+package com.kination
 
 //#user-routes-spec
 //#test-top
