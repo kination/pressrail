@@ -39,6 +39,8 @@ object QuickstartApp {
     }
     val system = ActorSystem[Nothing](rootBehavior, "HelloAkkaHttpServer")
     //#server-bootstrapping
+
+    BinlogReader.init()
   }
 }
 //#main-class
