@@ -19,6 +19,7 @@ lazy val root = (project in file(".")).
       "com.typesafe.akka" %% "akka-actor-testkit-typed" % akkaVersion     % Test,
       "org.scalatest"     %% "scalatest"                % "3.1.4"         % Test,
 
-      "com.zendesk" % "mysql-binlog-connector-java" % "0.25.4"
+      "com.zendesk" % "mysql-binlog-connector-java" % "0.25.4",
+      "org.yaml" % "snakeyaml" % "1.30"
     )
   )
