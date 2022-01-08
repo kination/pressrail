@@ -4,15 +4,14 @@ import akka.actor.typed.ActorSystem
 import akka.actor.typed.scaladsl.Behaviors
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.server.Route
+import com.kination.model.DataSource
+import com.kination.util.YamlParser
 
 import scala.util.Failure
 import scala.util.Success
 
-//#main-class
 object QuickstartApp {
-  //#start-http-server
   private def startHttpServer(routes: Route)(implicit system: ActorSystem[_]): Unit = {
-    // Akka HTTP still needs a classic ActorSystem to start
     import system.executionContext
 
     val futureBinding = Http().newServerAt("localhost", 8080).bind(routes)
@@ -25,9 +24,8 @@ object QuickstartApp {
         system.terminate()
     }
   }
-  //#start-http-server
+
   def main(args: Array[String]): Unit = {
-    //#server-bootstrapping
     val rootBehavior = Behaviors.setup[Nothing] { context =>
       val userRegistryActor = context.spawn(UserRegistry(), "UserRegistryActor")
       context.watch(userRegistryActor)
@@ -37,10 +35,13 @@ object QuickstartApp {
 
       Behaviors.empty
     }
+    
     val system = ActorSystem[Nothing](rootBehavior, "HelloAkkaHttpServer")
-    //#server-bootstrapping
 
-    BinlogReader.init()
+    val parsed = YamlParser.fromYamlFile("src/conf/dev/config-test.yml")
+    parsed forEach {
+      case (k, v: DataSource) => new BinlogReader(v)
+    }
   }
 }
 //#main-class
