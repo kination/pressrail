@@ -15,6 +15,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="sbt: ch.qos.logback:logback-classic:1.2.10:jar" level="project" />
     <orderEntry type="library" name="sbt: ch.qos.logback:logback-core:1.2.10:jar" level="project" />
+    <orderEntry type="library" name="sbt: com.chuusai:shapeless_2.13:2.3.6:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: com.typesafe.akka:akka-actor-testkit-typed_2.13:2.6.18:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.akka:akka-actor-typed_2.13:2.6.18:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe.akka:akka-actor_2.13:2.6.18:jar" level="project" />
@@ -30,6 +31,14 @@
     <orderEntry type="library" name="sbt: com.typesafe:config:1.4.0:jar" level="project" />
     <orderEntry type="library" name="sbt: com.typesafe:ssl-config-core_2.13:0.4.2:jar" level="project" />
     <orderEntry type="library" name="sbt: com.zendesk:mysql-binlog-connector-java:0.25.4:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.circe:circe-core_2.13:0.14.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.circe:circe-generic-extras_2.13:0.14.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.circe:circe-generic_2.13:0.14.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.circe:circe-jawn_2.13:0.14.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.circe:circe-literal_2.13:0.14.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.circe:circe-numbers_2.13:0.14.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.circe:circe-parser_2.13:0.14.0:jar" level="project" />
+    <orderEntry type="library" name="sbt: io.circe:circe-yaml_2.13:0.14.0:jar" level="project" />
     <orderEntry type="library" name="sbt: io.spray:spray-json_2.13:1.3.6:jar" level="project" />
     <orderEntry type="library" name="sbt: org.reactivestreams:reactive-streams:1.0.3:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang.modules:scala-java8-compat_2.13:1.0.0:jar" level="project" />
@@ -40,6 +49,10 @@
     <orderEntry type="library" scope="TEST" name="sbt: org.scalactic:scalactic_2.13:3.1.4:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="sbt: org.scalatest:scalatest_2.13:3.1.4:jar" level="project" />
     <orderEntry type="library" name="sbt: org.slf4j:slf4j-api:1.7.32:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:cats-core_2.13:2.6.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:cats-kernel_2.13:2.6.1:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:jawn-parser_2.13:1.1.2:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.typelevel:simulacrum-scalafix-annotations_2.13:0.5.4:jar" level="project" />
     <orderEntry type="library" name="sbt: org.yaml:snakeyaml:1.30:jar" level="project" />
   </component>
 </module>

@@ -35,13 +35,11 @@ object QuickstartApp {
 
       Behaviors.empty
     }
-    
+
     val system = ActorSystem[Nothing](rootBehavior, "HelloAkkaHttpServer")
 
-    val parsed = YamlParser.fromYamlFile("src/conf/dev/config-test.yml")
-    parsed forEach {
-      case (k, v: DataSource) => new BinlogReader(v)
-    }
+    val parsed: DataSource = YamlParser.sourceFromFile("src/conf/dev/config-test.yml")
+    new BinlogReader(parsed)
   }
 }
 //#main-class

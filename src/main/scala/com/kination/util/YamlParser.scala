@@ -1,15 +1,16 @@
 package com.kination.util
 
 import com.kination.model.DataSource
-import org.yaml.snakeyaml.Yaml
+import cats.syntax.either._
+import io.circe._
+import io.circe.generic.auto._
+import io.circe.yaml
 
-import java.io.{File, FileInputStream}
 
 object YamlParser {
-
-  def fromYamlFile(configFilePath: String): java.util.Map[String, DataSource] = {
-    val inputStream = new FileInputStream(new File(configFilePath))
-    val yaml = new Yaml()
-    yaml.load(inputStream).asInstanceOf[java.util.Map[String, DataSource]]
+  def sourceFromFile(configFilePath: String): DataSource = {
+    val lines = scala.io.Source.fromFile(configFilePath).mkString.stripMargin
+    val json: Either[ParsingFailure, Json] = yaml.parser.parse(lines)
+    json.leftMap(err => err).flatMap(_.as[DataSource]).valueOr(throw _)
   }
 }

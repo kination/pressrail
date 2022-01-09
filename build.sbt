@@ -1,5 +1,6 @@
 lazy val akkaHttpVersion = "10.2.7"
 lazy val akkaVersion    = "2.6.18"
+lazy val circeVersion = "0.14.0"
 
 lazy val root = (project in file(".")).
   settings(
@@ -20,6 +21,12 @@ lazy val root = (project in file(".")).
       "org.scalatest"     %% "scalatest"                % "3.1.4"         % Test,
 
       "com.zendesk" % "mysql-binlog-connector-java" % "0.25.4",
+      "io.circe" %% "circe-core" % circeVersion,
+      "io.circe" %% "circe-generic" % circeVersion,
+      "io.circe" %% "circe-generic-extras" % circeVersion,
+      "io.circe" %% "circe-literal" % circeVersion,
+      "io.circe" %% "circe-parser" % circeVersion,
+      "io.circe" %% "circe-yaml" % circeVersion,
       "org.yaml" % "snakeyaml" % "1.30"
     )
   )
