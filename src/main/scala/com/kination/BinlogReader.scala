@@ -16,7 +16,7 @@ class BinlogReader(dataSource: DataSource) {
     dataSource.password
   )
   val eventDeserializer = new EventDeserializer()
-  val logger = Logger("log")
+  val logger = Logger("BinlogReader")
 
   eventDeserializer.setCompatibilityMode(
     EventDeserializer.CompatibilityMode.DATE_AND_TIME_AS_LONG,
@@ -29,11 +29,8 @@ class BinlogReader(dataSource: DataSource) {
       val header: EventHeaderV4 = event.getHeader
       val eventType: EventType = header.getEventType
 
-      logger.info(s"Event -> ${event.getData}")
-      logger.info(s"getEventType -> ${header.getEventType}")
-
       eventType match {
-        case et if EventType.isRowMutation(et) => ??? // row CRUD event
+        case et if EventType.isRowMutation(et) => EventHandler.queryParser(event) // row CRUD event
         case _ => // else
       }
     }
