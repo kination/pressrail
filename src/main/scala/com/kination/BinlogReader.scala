@@ -3,7 +3,11 @@ package com.kination
 import akka.event.slf4j.Logger
 import com.github.shyiko.mysql.binlog.BinaryLogClient
 import com.github.shyiko.mysql.binlog.event.{Event, EventHeaderV4, EventType}
-import com.github.shyiko.mysql.binlog.event.deserialization.EventDeserializer
+import com.github.shyiko.mysql.binlog.event.deserialization.{
+  EventDeserializer,
+  ByteArrayEventDataDeserializer,
+  NullEventDataDeserializer
+}
 import com.kination.model.DataSource
 
 
@@ -21,6 +25,16 @@ class BinlogReader(dataSource: DataSource) {
   eventDeserializer.setCompatibilityMode(
     EventDeserializer.CompatibilityMode.DATE_AND_TIME_AS_LONG,
     EventDeserializer.CompatibilityMode.CHAR_AND_BINARY_AS_BYTE_ARRAY
+  )
+
+  eventDeserializer.setEventDataDeserializer(
+    EventType.EXT_DELETE_ROWS,
+    new ByteArrayEventDataDeserializer
+  )
+
+  eventDeserializer.setEventDataDeserializer(
+    EventType.EXT_WRITE_ROWS,
+    new NullEventDataDeserializer
   )
 
   bc.setEventDeserializer(eventDeserializer)
